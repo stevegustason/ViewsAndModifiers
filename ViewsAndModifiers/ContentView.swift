@@ -40,6 +40,21 @@ extension View {
     }
 }
 
+// Here's another custom modifier for large blue title text
+struct MainTitle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .foregroundColor(.blue)
+    }
+}
+
+extension View {
+    func mainTitleStyle() -> some View {
+        modifier(MainTitle())
+    }
+}
+
 // You can also create custom modifiers to create new view structure, like the one below which embeds the view in a stack and creates another view, allowing us to easily add a watermark to any view
 struct Watermark: ViewModifier {
     var text: String
@@ -118,6 +133,7 @@ struct ContentView: View {
             // Or you can use your extension which makes applying a custom modifier even easier
                 .titleStyle()
             spells
+                .mainTitleStyle()
             
             // You can then use your custom views inside of your original view
             CapsuleText(text: "First")
