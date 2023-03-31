@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-// You can also create your own custom views, like so
+// You can also create your own custom views like this
 struct CapsuleText: View {
     var text: String
 
